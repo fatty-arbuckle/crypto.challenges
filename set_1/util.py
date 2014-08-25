@@ -44,6 +44,8 @@ def xorByteArrays(first, second):
 		yield first[i] ^ second[i]
 
 # from http://en.wikipedia.org/wiki/Letter_frequency
+# plus a value for non-printable chars to help rule
+# them out
 ENGLISH_LETTER_FREQUENCY = [ 
 	 .8167,  .1492,  .2782,  .4253, 1.2702,
 	 .2228,  .2015,  .6094,  .6966,  .0153,

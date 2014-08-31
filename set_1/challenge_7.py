@@ -5,6 +5,8 @@ import util
 
 
 def decrypt_AES128_ECB(ciphertext, password):
+	assert len(ciphertext) % 16 == 0
+	assert len(password) == 16
 	bs = AES.block_size
 	cipher = AES.new(password, AES.MODE_ECB)
 	plaintext = cipher.decrypt(str(ciphertext))

@@ -1,5 +1,7 @@
 import string
 import base64
+from Crypto.Cipher import AES
+
 
 
 def b64ToByteString(b64):
@@ -91,3 +93,10 @@ def bestSingleXorByte(s):
 	results = sorted(chiMap.iteritems(), key=lambda kvt: kvt[1]['chi'])
 	return results[0][1]['key']
 
+def decrypt_AES128_ECB(ciphertext, password):
+	assert len(ciphertext) % 16 == 0
+	assert len(password) == 16
+	bs = AES.block_size
+	cipher = AES.new(password, AES.MODE_ECB)
+	plaintext = cipher.decrypt(str(ciphertext))
+	return plaintext
